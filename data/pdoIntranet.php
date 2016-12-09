@@ -47,20 +47,16 @@ class PdoIntranet
 	public function getLeUser($login, $mdp)
   {
     $mdp =md5($mdp);
-		$req = "SELECT id, level, name FROM mrbs_users WHERE name = :login AND password = :mdp";
+		$req = "select id, level, name from mrbs_users where name = :login and password = :mdp";
     $stm = self::$monPdo->prepare($req);
     $stm->bindParam(':login', $login);
     $stm->bindParam(':mdp', $mdp);
     $stm->execute();
     $laLigne = $stm->fetch();
     if(count($laLigne)>1)
-    {
       return $laLigne;
-    }
-    else       
-    {      
+    else              
       return NULL;
-    } 
 	} 
         
         
