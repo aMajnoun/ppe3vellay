@@ -4,7 +4,8 @@
      ?>
         <div data-role="content"> 
           <div class="ui-field-contain">
-                <label for="selectsalle">Salle</label>
+              <p>
+                <label for="selectsalle">Salle : </label>
                 
                 <select name="selectsalle">
                     <option id="1" value="1">Daum</option>
@@ -22,6 +23,17 @@
                     <option id="13" value="13">Hall d'accueil</option>
                     <option id="14" value="14">Gallé</option>
                 </select>
+               </p>
+              
+                <p>
+                    <label id="LblSelectperiode">Date : </label><br/>
+                    <input type="radio" name="selectPeriode" id="selectJour" value="Jour">Jour<br/>
+                    <input type="radio" name="selectPeriode" id="selectSemaine" value="Semaine">Semaine
+                </p>
+                
+                <p>
+                    <input type="date" name="dateReservation" id="dateReservation" value="" class ="required"/>
+                </p>
           </div>
         </div><!-- /content --> 
 </div><!-- /page 1 -->
