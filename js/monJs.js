@@ -20,6 +20,13 @@ $(function(){
                 $("#pageconnexion #message").html("erreur de login et/ou mdp");
              }
     }
+
+    $('#btndeconnexion').bind("click", function(e) {
+        e.preventDefault();
+        var mdp = ""
+        var login = ""
+        $.mobile.changePage("#pageconnexion");
+    });
     
 });     // Fin fonction principale
 
