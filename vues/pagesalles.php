@@ -5,6 +5,7 @@
         <div data-role="content"> 
           <div class="ui-field-contain">
                 <label for="selectsalle">Salle</label>
+                
                 <select name="selectsalle">
                     <option id="1" value="1">Daum</option>
                     <option id="2" value="2">Corbin</option>
