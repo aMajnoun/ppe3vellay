@@ -59,7 +59,14 @@ class PdoIntranet
       return NULL;
 	} 
         
-        
+        public function getLaListeSalle()
+        {
+            $req="select id, room_name from mrbs_room order by id";
+            $stm = self::$monPdo->prepare($req);
+            $stm->execute();
+            $lesLigne = $stm->fetchAll();
+            return $lesLignes;
+        }
         
 }   // fin classe
 ?>
