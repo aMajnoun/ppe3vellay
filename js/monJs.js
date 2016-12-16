@@ -23,8 +23,11 @@ $(function(){
 
     $('#btndeconnexion').bind("click", function(e) {
         e.preventDefault();
-        var mdp = ""
-        var login = ""
+        var mdp = "";
+        var login = "";
+         $("#pageconnexion #mdp").val(""); 
+         $("#pageconnexion #login").val("")
+         $("#pageconnexion #message").html("")
         $.mobile.changePage("#pageconnexion");
     });
     
