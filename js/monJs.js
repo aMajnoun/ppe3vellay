@@ -21,23 +21,27 @@ $(function(){
              }
     }
 
+
+    /*-----------------------Autres pages----------------------------------*/
     $('#btndeconnexion').bind("click", function(e) {
-        e.preventDefault();
         var mdp = "";
         var login = "";
          $("#pageconnexion #mdp").val(""); 
-         $("#pageconnexion #login").val("")
-         $("#pageconnexion #message").html("")
+         $("#pageconnexion #login").val("");
+         $("#pageconnexion #message").html("");
         $.mobile.changePage("#pageconnexion");
     });
+
     
     $('#')
-    
+
+    /*-----------------------page salles----------------------------------*/
     $('#pagesalles').load(function (e){
         $.post("ajax/traiterrecherchelistesalles.php",{
         },
         foncRetourListeSalles,"json");
-    })
+    });
+
     
     function foncRetourListeSalles(data)
     {
@@ -50,6 +54,51 @@ $(function(){
                 $('#pagesalles #selectsalle').append(html);
             } 
     }
+
+
+    /*-----------------------page liste utilisateurs----------------------------------*/
+
+    //ne marche pas
+    $('#pagelisteutilisateurs').load(function (e){
+    $.post("ajax/traiterafficherlisteutilisateurs.php",{
+        },
+        foncRetourListeUtilisateurs,"json");
+    });
+
+    //marche
+    $('#btnlisteutilisateurs').bind("click", function(e){
+    $.mobile.changePage("#pagelisteutilisateurs");  
+    $.post("ajax/traiterafficherlisteutilisateurs.php",{
+        },
+        foncRetourListeUtilisateurs,"json");
+    });
+
+          function foncRetourListeUtilisateurs(data){
+          var lesUtilisateurs = data;
+          var html ="";
+          for(i = 0; i<lesUtilisateurs.length ; i++){
+              var unUtilisateur = lesUtilisateurs[i];
+              var droits = unUtilisateur['level'];
+              var nom = unUtilisateur['name'];
+              var courriel = unUtilisateur['email'];
+              if (droits == 0)
+              {
+                droits = "none";
+              }
+              if (droits == 1)
+              {
+                droits = "user";
+              }
+              if (droits == 2)
+              {
+                droits = "admin";
+              }
+              html+="<tr><td>" + "<a href=''>modifier</a>" + "</td><td>" + droits + "</td><td>" + nom + "</td><td>";
+              html+= courriel + "</td></tr>";              
+          }
+          $("#pagelisteutilisateurs #listeUtilisateurs").html(html);
+          $("#pagelisteutilisateurs #tabUtilisateurs").table("refresh");
+      }
     
 });     // Fin fonction principale
 

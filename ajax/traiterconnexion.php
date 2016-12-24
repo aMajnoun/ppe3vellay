@@ -2,9 +2,7 @@
     session_start();
     require_once '../data/pdoIntranet.php';   
     $mdp = $_REQUEST['mdp'];
-    $login = $_REQUEST['login'];
-    
-  
+    $login = $_REQUEST['login'];  
     $pdo = PdoIntranet::getPdo();
     $user = $pdo->getLeUser($login,$mdp);// retourne le visiteur
 

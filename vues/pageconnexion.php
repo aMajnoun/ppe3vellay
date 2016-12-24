@@ -1,6 +1,10 @@
 <div data-role="page" id="pageconnexion">
-     <?php 
-     include "vues/entetepageconnexion.php"
+    <?php 
+    if (isset($_SESSION))
+    {
+        session_destroy();
+    }
+    include "vues/entetepageconnexion.php";
      ?>
         <div data-role="content" id="divconnexion">
         <p>Veuillez vous identifier</p> 

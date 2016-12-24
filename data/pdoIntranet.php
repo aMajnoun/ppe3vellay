@@ -54,19 +54,32 @@ class PdoIntranet
     $stm->execute();
     $laLigne = $stm->fetch();
     if(count($laLigne)>1)
+    {
       return $laLigne;
-    else              
+    }
+    else
+    {              
       return NULL;
+    }
 	} 
         
-        public function getLaListeSalle()
-        {
-            $req="select id, room_name from mrbs_room order by id";
-            $stm = self::$monPdo->prepare($req);
-            $stm->execute();
-            $lesLigne = $stm->fetchAll();
-            return $lesLignes;
-        }
+  public function getLaListeSalle()
+  {
+    $req="select id, room_name from mrbs_room order by id";
+    $stm = self::$monPdo->prepare($req);
+    $stm->execute();
+    $lesLigne = $stm->fetchAll(); //lesligneS --> S <-- ?
+    return $lesLignes;
+  }
+
+  public function getLaListeUtilisateurs()
+  {
+    $req="SELECT id,level,name,email FROM mrbs_users order by name";
+    $stm = self::$monPdo->prepare($req);
+    $stm->execute();
+    $lesLignes = $stm->fetchAll();
+    return $lesLignes;
+  }
         
 }   // fin classe
 ?>

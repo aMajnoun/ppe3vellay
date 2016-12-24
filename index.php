@@ -16,6 +16,7 @@
 <?php
 include_once 'vues/pageconnexion.php';
 include_once 'vues/pagesalles.php';
+include_once 'vues/pagelisteutilisateurs.php';
 include_once 'vues/entetepageconnexion.php';
 include_once 'vues/entetepage.php';
 ?>
