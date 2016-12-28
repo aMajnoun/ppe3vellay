@@ -23,13 +23,16 @@ $(function(){
 
 
     /*-----------------------Autres pages----------------------------------*/
+
+    //ne marche que dans la page salles
     $('#btndeconnexion').bind("click", function(e) {
         var mdp = "";
         var login = "";
-         $("#pageconnexion #mdp").val(""); 
-         $("#pageconnexion #login").val("");
-         $("#pageconnexion #message").html("");
         $.mobile.changePage("#pageconnexion");
+        $("#pageconnexion #mdp").val(""); 
+        $("#pageconnexion #login").val("");
+        $("#pageconnexion #message").html("");
+
     });
 
     
@@ -99,6 +102,11 @@ $(function(){
           $("#pagelisteutilisateurs #listeUtilisateurs").html(html);
           $("#pagelisteutilisateurs #tabUtilisateurs").table("refresh");
       }
+
+      
+    $('#btnajouterutilisateur').bind("click", function(e){
+    $.mobile.changePage("#pagesajoututilisateur");
+    });
     
 });     // Fin fonction principale
 

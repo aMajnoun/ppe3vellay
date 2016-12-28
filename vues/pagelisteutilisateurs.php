@@ -4,6 +4,7 @@
      ?>
         <div data-role="content"> 
         <h2>Liste des utilisateurs</h2>
+        <button id="btnajouterutilisateur">Ajouter un utilisateur</button>
           <div class="ui-field-contain">
 			<table border="1" id="tabUtilisateurs">
 				<thead>

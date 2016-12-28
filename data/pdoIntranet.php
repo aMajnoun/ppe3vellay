@@ -74,7 +74,7 @@ class PdoIntranet
 
   public function getLaListeUtilisateurs()
   {
-    $req="SELECT id,level,name,email FROM mrbs_users order by name";
+    $req="SELECT id,level,name,email FROM mrbs_users order by level,name";
     $stm = self::$monPdo->prepare($req);
     $stm->execute();
     $lesLignes = $stm->fetchAll();
