@@ -33,22 +33,24 @@ $(function(){
     
     $('#')
     
-    $('#pagesalles').load(function (e){
+    $('#pagesalles #selectsalle').bind("onload", function (e){
         $.post("ajax/traiterrecherchelistesalles.php",{
+            
         },
         foncRetourListeSalles,"json");
     })
     
     function foncRetourListeSalles(data)
     {
-        $('#pagesalles #selectsalle').empty();
         for( i = 0; i < data.length; i++){
                 var lesSalles = data[i];
                 var id = lesSalles['id'];
                 var salle = lesSalles['room_name'] ;
                 var html = "<option id ='" + id + "' value ='" + id + "'>" + salle + "</option>"
                 $('#pagesalles #selectsalle').append(html);
+                
             } 
+            $('#pagesalles').reload();
     }
     
 });     // Fin fonction principale
