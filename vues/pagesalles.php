@@ -1,14 +1,12 @@
 <div data-role="page" id="pagesalles">
      <?php 
-     include "vues/entetepage.php"
+     include "vues/entetepage.php";     
      ?>
         <div data-role="content"> 
           <div class="ui-field-contain">
               <p>
                 <label for="selectsalle">Salle : </label>
-                
                 <select name="selectsalle">
-
                 </select>
                </p>
               
