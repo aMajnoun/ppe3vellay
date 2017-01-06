@@ -65,10 +65,10 @@ class PdoIntranet
         
   public function getLaListeSalle()
   {
-    $req="select id, room_name from mrbs_room order by id";
+    $req="select id, room_name from mrbs_room";
     $stm = self::$monPdo->prepare($req);
     $stm->execute();
-    $lesLigne = $stm->fetchAll(); //lesligneS --> S <-- ?
+    $lesLignes = $stm->fetchAll();
     return $lesLignes;
   }
 

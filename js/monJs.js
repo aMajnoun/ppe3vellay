@@ -24,8 +24,8 @@ $(function(){
 
     /*-----------------------Autres pages----------------------------------*/
 
-    //ne marche que dans la page salles
-    $('#btndeconnexion').bind("click", function(e) {
+
+    $('#entetepage #btndeconnexion').bind("click", function(e) {
         var mdp = "";
         var login = "";
         $.mobile.changePage("#pageconnexion");
@@ -39,7 +39,7 @@ $(function(){
     $('#')
 
     /*-----------------------page salles----------------------------------*/
-    $('#pagesalles').load(function (e){
+    $('#pagesalles').ready(function (e){
         $.post("ajax/traiterrecherchelistesalles.php",{
             
         },
@@ -49,29 +49,36 @@ $(function(){
     
     function foncRetourListeSalles(data)
     {
-        for( i = 0; i < data.length; i++){
+        for( i = 0; i < data.length; i++)
+            {
                 var lesSalles = data[i];
                 var id = lesSalles['id'];
                 var salle = lesSalles['room_name'] ;
                 var html = "<option id ='" + id + "' value ='" + id + "'>" + salle + "</option>"
                 $('#pagesalles #selectsalle').append(html);
-                
             } 
-            $('#pagesalles').reload();
+            
     }
-
+    
+    $('#pagesalles #selectJour').bind("click", function(e)
+    {
+        $('#pagesalles #choixDate').html('<input type="date" name="dateReservation" id="dateReservation" value="" class ="required"/>')
+    });
+    $('#pagesalles #selectSemaine').bind("click", function(e)
+    {
+        $('#pagesalles #choixDate').html('<input type="week" name="dateReservation" id="dateReservation" value="" class ="required"/>')
+    });
 
     /*-----------------------page liste utilisateurs----------------------------------*/
 
-    //ne marche pas
-    $('#pagelisteutilisateurs').load(function (e){
+    $('#pagelisteutilisateurs').ready(function (e){
     $.post("ajax/traiterafficherlisteutilisateurs.php",{
         },
         foncRetourListeUtilisateurs,"json");
     });
 
     //marche
-    $('#btnlisteutilisateurs').bind("click", function(e){
+    $('#entetepage #btnlisteutilisateurs').bind("click", function(e){
     $.mobile.changePage("#pagelisteutilisateurs");  
     $.post("ajax/traiterafficherlisteutilisateurs.php",{
         },
@@ -110,5 +117,9 @@ $(function(){
     $.mobile.changePage("#pagesajoututilisateur");
     });
     
+    
+    //---------------Page ajouter reservation-----------------------
+    $('#entetepage #btnajouter').bind("click", function(e){
+    $.mobile.changePage("#pageajoutreservation")});
 });     // Fin fonction principale
 

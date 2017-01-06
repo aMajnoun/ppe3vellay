@@ -3,7 +3,7 @@
 	<h1>Système de réservation de salles mobile</h1>
 	<div data-role="navbar">
 		<ul>
-			<li><a href="" id="ajouter">Ajouter</a></li>
+			<li><a href="" id="btnajouter">Ajouter Réservation</a></li>
 			<li id="btndeconnexion"><a href="">Déconnexion</a></li>
 			<li id="btnlisteutilisateurs"><a href="">Liste Utilisateurs</a></li>		
 		</ul>

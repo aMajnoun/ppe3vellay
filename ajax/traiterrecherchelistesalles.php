@@ -1,6 +1,6 @@
 <?php
-    require_once '../data/pdogsbrapports.php';   //PdoIntranet ?
-    $pdo = PdoIntranet::getPdo(); //PdoIntranet ?
+    require_once '../data/pdoIntranet.php'; 
+    $pdo = PdoIntranet::getPdo();
     $laListe = $pdo->getLaListeSalle();
     echo json_encode($laListe);
 ?>
